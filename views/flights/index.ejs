@@ -1,11 +1,14 @@
 <%- include('../partials/header') %>
-<table id="list">
-    <thead>
+
+<div class="container">
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
       <tr>
         <th>Airline:</th>
         <th>Airport:</th>
         <th>Flight Number:</th>
         <th>Departure Date</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -15,8 +18,11 @@
           <td><%= f.airport %></td>
           <td><%= f.flightNum %></td>
           <td><%= f.departs %></td>
+          <td><a href="/flights/<%= f._id %>" class="btn btn-primary">Details</a></td>
         </tr>
         <% }); %>
       </tbody>
     </table>
+</div>
+
 <%- include('../partials/footer') %>

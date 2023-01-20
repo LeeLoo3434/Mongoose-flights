@@ -1,6 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const destinationSchema = new Schema({
+    airport:{
+        type:String,
+        enum: ['American', 'Southwest', 'Alaska Airlines', 'United']
+    },
+    arrival:{
+        type:Date,
+        default: function() {
+            return new Date().toISOString().split('T')[0];
+        },
+    }
+})
+
 const flightSchema = new Schema({
     airline:{
         type:String,
@@ -22,6 +35,7 @@ const flightSchema = new Schema({
             return new Date().getFullYear()
         }
         },
+        destinations:[destinationSchema]
     }, {
     timestamps:true
 })
