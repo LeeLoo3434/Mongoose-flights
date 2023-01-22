@@ -6,13 +6,8 @@ const destinationSchema = new Schema({
         type:String,
         enum: ['American', 'Southwest', 'Alaska Airlines', 'United']
     },
-    arrival:{
-        type:Date,
-        default: function() {
-            return new Date().toISOString().split('T')[0];
-        },
-    }
-})
+    arrival:Date,
+    })
 
 const flightSchema = new Schema({
     airline:{
@@ -28,6 +23,7 @@ const flightSchema = new Schema({
         min:10,
         max:9999
     },
+
     departs: {
         type: Date,
         required:true,
