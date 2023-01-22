@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <th>Flight No.</th>
-      <td><%= flight.flightNo %></td>
+      <td><%= flight.flightNum %></td>
     </tr>
     <tr>
       <th>Date</th>
@@ -20,6 +20,12 @@
     </tr>
   </table>
   <br />
+  <h2>Destinations</h2>
+  <table>
+    <tr>
+      <th>Destination Airport</th>
+      <th>Destination Arrival</th>
+    </tr>
     <% flight.destinations.forEach(function(f) { %>
     <tr>
       <td><%= f.airport ? f.airport : 'None' %></td>
@@ -30,7 +36,7 @@
 
   <br /><br />
   <h2>Add Destination</h2>
-  <form method="POST" action="/flights/<%= flight._id %>/destinations">
+  <form method="POST" action="/flights/<%= flight._id %>">
     <label>Airport:</label>
     <input type="string" name="airport" />
     <label>Arrival:</label>

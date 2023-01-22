@@ -18,17 +18,14 @@ function newFlight(req,res){
     res.render('flights/new', {title: 'Add A Flight'})
 }
 
-function create(req,res){
-    const flight = new Flight(req.body)
-    const dt = newFlight.departs;
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
-    flight.save(function(err){
-        if (err) return res.redirect('/flights/new');
-        console.log(flight);
-        res.redirect('/flights');
-    })
+function create(req, res) {
+    const flight = new Flight(req.body);
+    flight.save(function (err) {
+    if (err) console.log(err);
+    if (err) return res.redirect("/flights/new");
+    console.log(flight);
+    res.redirect("/flights");
+    });
 }
 
 function show(req, res) {
